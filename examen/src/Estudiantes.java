@@ -8,10 +8,10 @@ public class Estudiantes {
     public Estudiantes(int num_estudiantes,int num_notas){
         this.num_estudiantes=num_estudiantes;
         this.num_notas=num_notas;
-        this.matriz= new double[5][5];
+        this.matriz= new double[5][5];// se inicializa pero no se llama en el objeto
     }
     public void Estudiantesaprobados(){
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in); // se crea un sccaner aqui para poder llenarlo pero no se cierra
         for(int i =0;i<this.matriz.length;i++){
             for(int j =0;j<5;j++){
                 System.out.println("ingrese la nota : "+ (j+1)+ "  del estudiante : "+ (i+1));
@@ -21,7 +21,7 @@ public class Estudiantes {
     }
     public void promedio_notas_altas(){
         double promedioalto =0;
-        int contador =0;
+        int contador =0;// variable para saber cuantas notas son superiores a 80
         for(int i =0;i<this.matriz.length;i++){
             for(int j =0;j<5;j++){
                 contador++;
@@ -75,9 +75,15 @@ public class Estudiantes {
         Estudiantes clase1 = new Estudiantes(numero_estudiantes,numero_notas);
         System.out.println("ingrese notas de la matriz  : ");
         clase1.Estudiantesaprobados();
-        // promedio de notas superiores a 80 
+        System.out.println(" promedio de notas superiores a 80 ");
         clase1.promedio_notas_altas();
-        //
+        System.out.println("imprimir notas bajas"); 
+        clase1.imprimir_notas_bajas();
+        // nota mayor 
+        clase1.hallarnotamayor();
+        // bonus
+        clase1.notas_fuera_de_rango();
+
 
         scanner.close();
     }
